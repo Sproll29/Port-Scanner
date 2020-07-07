@@ -7,7 +7,7 @@ def pscan(port):
     try:
         conn = s.connect((target, port))
         return True
-    except:
+    except ConnectionRefusedError:
         return False
 
 end = False
