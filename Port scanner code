@@ -1,0 +1,26 @@
+import socket
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+target = "192.168.1.1"
+
+def pscan(port):
+    try:
+        conn = s.connect((target, port))
+        return True
+    except:
+        return False
+
+end = False
+
+print("Enter a port to scan. Type q to quit")
+
+
+while end == False:
+    port = int(input("Enter what port you would like to scan: "))
+    if pscan(port):
+        print("Port",port,"is open")
+    elif port == "q":
+        print("You have quit the port scanner")
+        break
+    else:
+        print("Port",port,"is closed")
